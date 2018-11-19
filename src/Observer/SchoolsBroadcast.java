@@ -8,6 +8,7 @@ import java.util.List;
  * 	具体的 被观察者（学校广播）
  */
 public class SchoolsBroadcast extends Observable{
+	//用来存储观察者
 	private List<Observer> observers = new ArrayList<Observer>();
 	@Override
 	void sendBroadcast(String message) {
@@ -16,11 +17,11 @@ public class SchoolsBroadcast extends Observable{
 			ob.receive(message);
 		}
 	}
-	//绑定观察者
+	//绑定观察者（可以移动到抽象被观察者中）
 	public void registerReceiver(Observer observer) {
 		observers.add(observer);
 	}
-	//解绑观察者
+	//解绑观察者（可以移动到抽象被观察者中）
 	public void unRegisterReceiver(Observer observer) {
 		if(observers.contains(observer)) {
 			observers.remove(observer);
